@@ -97,3 +97,22 @@
 
 (define (initial-env)
   (bind primitive-procedure-names primitive-procedure-objects '()))
+
+;; Interface
+
+(define input-prompt "my-eval > ")
+(define output-prompt "=> ")
+
+(define (prompt-for-text string)
+  (display string))
+
+(define (eval-loop)
+  (display input-prompt)
+  (let ((input (read)))
+    (let ((output (my-eval input (initial-env))))
+      (display output-prompt)
+      (display output)
+      (display "\n")))
+  (eval-loop))
+
+(provide eval-loop)

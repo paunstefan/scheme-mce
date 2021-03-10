@@ -13,13 +13,13 @@ It is called a metacircular evaluator because it is an evaluator for
 LISP written in itself (in this case, I used the Racket dialect of Scheme).
 
 ## How to use
-You need to have a Scheme implementation, I used Racket, but any should work. Then run the sicp-mce.rkt file to load the definitions and you can 
-use them in the REPL my calling the `my-eval` function.
+You need to have a Scheme implementation, I used Racket, but any should work. You need to have the `sicp-mce.rkt` file, which exports the `eval-loop` function. In your file or in a REPL import the file and 
+run the function.
 
 ```scheme
-(my-eval '((lambda (x) (+ x 1)) 42) (initial-env))
+(require "sicp-mce.rkt")
+(eval-loop)
 ```
 
 ### More
-The evaluator is extended and made better in the main branch of the repo. 
-I'm keeping this one to keep a record of the simplest evaluator.
+In the basic_sicp branch you can find the simplest variant of the evaluator.
